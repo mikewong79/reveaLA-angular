@@ -10,8 +10,8 @@ angular.module('reveaLA', [
   'reveaLA.controllers',
   'mm.foundation'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'ModalDemoCtrl'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'ModalDemoCtrl'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+
+config(function($stateProvider, $urlRouterProvider) {
+  // For any unmatched url, redirect to start modal
+  $urlRouterProvider.otherwise("/start")
+})
